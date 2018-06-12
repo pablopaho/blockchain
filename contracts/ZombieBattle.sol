@@ -1,6 +1,6 @@
 pragma solidity ^0.4.19;
 
-import "./zombiehelper.sol";
+import "./ZombieHelper.sol";
 
 contract ZombieBattle is ZombieHelper {
   uint randNonce = 0;
@@ -11,7 +11,7 @@ contract ZombieBattle is ZombieHelper {
     return uint(keccak256(now, msg.sender, randNonce)) % _modulus;
   }
 
-  function attack(uint _zombieId, uint _targetId) external ownerOf(_zombieId) {
+  function attack(uint _zombieId, uint _targetId) external onlyOwnerOf(_zombieId) {
     Zombie storage myZombie = zombies[_zombieId];
     Zombie storage enemyZombie = zombies[_targetId];
     uint rand = randMod(100);
