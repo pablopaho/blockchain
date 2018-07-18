@@ -4,7 +4,9 @@ module.exports = {
     development: {
       host: "127.0.0.1",
       port: 8545,
-      network_id: "*" // Match any network id
+      from: "0xC7CaB9ECEd3a692165572CeC690b07AE9dC3238d",
+      network_id: "4", // Match any network id
+      gas: 4612388
     },
     rinkeby: {
       host: "127.0.0.1", // Connect to geth on the specified
