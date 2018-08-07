@@ -2,6 +2,7 @@ pragma solidity ^0.4.4;
 
 contract CommunityFactory {
 
+  string public message;
   uint globalDecimals = 10**4;
   uint rateInsurance = 5 * globalDecimals; 
   
@@ -27,6 +28,10 @@ contract CommunityFactory {
   mapping (string => uint) nameToCommunity;
   mapping (uint => uint) public membersToCommunity;
   mapping (uint => address) public membersToAddress;
+
+  constructor(string initalMessage) public {
+    message = initalMessage;
+  }
 
   function quote(uint _insuredAmount) public view returns (uint) {
     uint paymentAmount = ((_insuredAmount * globalDecimals) * rateInsurance) / (100*globalDecimals);
